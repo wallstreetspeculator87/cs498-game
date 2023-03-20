@@ -9,11 +9,12 @@ public class MainMenu : MonoBehaviour
     // Public members can be linked to certain objects from within the unity editor
     // This links to the canvas object
     public UIDocument m_document;
+    private VisualElement rootElement;
     
     void Start()
     {
         // Link button clicked events
-        var rootElement = m_document.rootVisualElement;
+        rootElement = m_document.rootVisualElement;
         Button tutorialButton = rootElement.Query<Button>("Tutorial");
         tutorialButton.clickable.clicked += TutorialClicked;
 
@@ -31,6 +32,7 @@ public class MainMenu : MonoBehaviour
     {
         // Begin tutorial
         Debug.Log("Clicked tutorial");
+        rootElement.visible = false;
     }
 
     private void OptionsClicked()
