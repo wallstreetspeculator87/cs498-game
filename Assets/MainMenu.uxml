@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="MainMenu" style="height: 50%; margin-top: 5%;">
+        <ui:Label text="CS 498 -- Snowball Fight" display-tooltip-when-elided="true" name="Title" style="justify-content: flex-start; align-items: stretch; -unity-text-align: upper-center; -unity-font: url(&apos;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#Arial&apos;); font-size: 32px; -unity-font-definition: initial; height: 15%;" />
+        <ui:GroupBox name="Buttons" style="height: 85%; align-items: center; justify-content: space-between;">
+            <ui:Button text="Tutorial Mode" display-tooltip-when-elided="true" name="Tutorial" style="width: 50%; justify-content: flex-start; font-size: 24px;" />
+            <ui:Button text="Battle Mode" display-tooltip-when-elided="true" name="Battle" style="width: 50%; justify-content: flex-start; font-size: 24px;" />
+            <ui:Button text="Options" display-tooltip-when-elided="true" name="Options" style="width: 50%; justify-content: flex-start; font-size: 24px;" />
+            <ui:Button text="Quit" display-tooltip-when-elided="true" name="Quit" style="width: 50%; justify-content: flex-start; font-size: 24px;" />
+        </ui:GroupBox>
+    </ui:VisualElement>
+</ui:UXML>
