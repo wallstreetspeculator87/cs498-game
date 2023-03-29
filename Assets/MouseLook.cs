@@ -11,8 +11,15 @@ public class MouseLook : MonoBehaviour
 
     float xRotation = 0f;
 
+    private PlayerGlobals playerGlobals;
+
     // Start is called before the first frame update
     void Start()
+    {
+        playerGlobals = transform.parent.GetComponent<PlayerGlobals>();
+    }
+
+    public void LockMouse()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -20,6 +27,10 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!playerGlobals.characterEnabled)
+        {
+            return;
+        }
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 

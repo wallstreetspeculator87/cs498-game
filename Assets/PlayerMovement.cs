@@ -18,15 +18,22 @@ public class PlayerMovement : MonoBehaviour
     Vector3 playerVelocity;
     bool isGrounded;
 
+    private PlayerGlobals playerGlobals;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerGlobals = GetComponent<PlayerGlobals>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!playerGlobals.characterEnabled)
+        {
+            return;
+        }
+
         isGrounded = Physics.CheckSphere(groundedCheck.position, groundDistance, groundMask);
 
         if (isGrounded && playerVelocity.y < 0) {
