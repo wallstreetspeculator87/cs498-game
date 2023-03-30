@@ -9,7 +9,11 @@ public class MainMenu : MonoBehaviour
     // Public members can be linked to certain objects from within the unity editor
     // This links to the canvas object
     public UIDocument m_document;
+    public GameObject hud;
+
     private VisualElement rootElement;
+    private GameObject player;
+    private PlayerGlobals playerGlobals;
     
     void Start()
     {
@@ -26,6 +30,18 @@ public class MainMenu : MonoBehaviour
 
         Button quitButton = rootElement.Query<Button>("Quit");
         quitButton.clickable.clicked += QuitClicked;
+
+        hud.GetComponent<UIDocument>().rootVisualElement.visible = false;
+    }
+
+    void StartGame()
+    {
+        player = transform.parent.gameObject;
+        playerGlobals = player.GetComponent<PlayerGlobals>();
+
+        player.transform.Find("Camera").GetComponent<MouseLook>().LockMouse();
+        playerGlobals.characterEnabled = true;
+        hud.GetComponent<UIDocument>().rootVisualElement.visible = true;
     }
 
     private void TutorialClicked()
@@ -33,6 +49,7 @@ public class MainMenu : MonoBehaviour
         // Begin tutorial
         Debug.Log("Clicked tutorial");
         rootElement.visible = false;
+        StartGame();
     }
 
     private void OptionsClicked()

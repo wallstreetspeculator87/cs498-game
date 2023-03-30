@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13966, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: movementTest
+  m_EditorClassIdentifier: 
+  templateScene: {fileID: 102900000, guid: 9dd221f8ae3edc1488427d92117e1fbf, type: 3}
+  templateName: 
+  description: 
+  preview: {fileID: 0}
+  dependencies:
+  - dependency: {fileID: 9197481963319205126, guid: 5731f357a26c901458734c67dba887fd, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 9197481963319205126, guid: cd5e0da329ef60142a93a13f73758b00, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 2105928734362005705, guid: 0da51a9ccfc2f9645abd8318d4341851, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 919132149155446097, guid: 09206fd033211ec49b97e649890a42ca, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 919132149155446097, guid: 7096f4d2e1ef78f4e8f327026991a633, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: -4733365628477956816, guid: 8b243c13486cb5948a5c45e7534bf863, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 11400000, guid: 554b3916b26df874080d5a8288ccb10c, type: 2}
+    instantiationMode: 1
+  - dependency: {fileID: 3723755681524390593, guid: 9beef82849fdf854ba68b28e06bf7bfb, type: 3}
+    instantiationMode: 0
+  templatePipeline: {fileID: 0}
+  badge: {fileID: 0}
+  addToDefaults: 0
