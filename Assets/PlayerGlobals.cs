@@ -14,6 +14,11 @@ public class PlayerGlobals : MonoBehaviour
     public int hp = 100;
     public int maxHp = 100;
 
+    public float snowballCooldown = 1f;
+    public bool snowballEnabled = true;
+
+    public int targetsHit = 0;
+
     // Pause character/mouse movement until game starts
     public bool characterEnabled = false;
 }
