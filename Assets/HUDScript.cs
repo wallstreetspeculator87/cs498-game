@@ -10,6 +10,10 @@ public class HUDScript : MonoBehaviour
     VisualElement ui;
     Label hp;
     Label ammo;
+    Label crosshair;
+
+    bool hitmarkerOn = false;
+    float hitmarkerLength = 0.25f;
 
     void Start()
     {
@@ -17,6 +21,24 @@ public class HUDScript : MonoBehaviour
         ui = GetComponent<UIDocument>().rootVisualElement;
         hp = ui.Query<Label>("Health");
         ammo = ui.Query<Label>("Ammo");
+        crosshair = ui.Query<Label>("Crosshair");
+    }
+
+    IEnumerator HitmarkerText()
+    {
+        hitmarkerOn = true;
+        crosshair.text = "- + -";
+        yield return new WaitForSecondsRealtime(hitmarkerLength);
+        crosshair.text = "+";
+        hitmarkerOn = false;
+    }
+
+    public void SetHitmarker()
+    {
+        if (!hitmarkerOn)
+        {
+            StartCoroutine(HitmarkerText());
+        }
     }
 
     // Update is called once per frame
