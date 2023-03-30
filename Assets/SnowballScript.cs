@@ -10,12 +10,14 @@ public class SnowballScript : MonoBehaviour
     public Vector3 direction;
     private Rigidbody rb;
     public const float snowballSpeed = 1750f;
-    
+    public const float snowballLifetime = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.AddForce(direction * snowballSpeed);
+        Destroy(gameObject, snowballLifetime);
     }
 
     // Prefered over Update for rigidbodies
