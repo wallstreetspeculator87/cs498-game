@@ -11,9 +11,12 @@ public class HUDScript : MonoBehaviour
     Label hp;
     Label ammo;
     Label crosshair;
+    Label tipLabel;
 
     bool hitmarkerOn = false;
-    float hitmarkerLength = 0.25f;
+    float hitmarkerLength = 0.66f;
+
+    bool tipping = false;
 
     void Start()
     {
@@ -22,6 +25,7 @@ public class HUDScript : MonoBehaviour
         hp = ui.Query<Label>("Health");
         ammo = ui.Query<Label>("Ammo");
         crosshair = ui.Query<Label>("Crosshair");
+        tipLabel = ui.Query<Label>("Tip");
     }
 
     IEnumerator HitmarkerText()
@@ -38,6 +42,23 @@ public class HUDScript : MonoBehaviour
         if (!hitmarkerOn)
         {
             StartCoroutine(HitmarkerText());
+        }
+    }
+
+    IEnumerator ShowTip(string tip, float tipLength)
+    {
+        tipping = true;
+        tipLabel.text = "[Tip]\n" + tip;
+        yield return new WaitForSecondsRealtime(tipLength);
+        tipLabel.text = "";
+        tipping = false;
+    }
+
+    public void SetTip(string tip, float tipLength)
+    {
+        if (!tipping)
+        {
+            StartCoroutine(ShowTip(tip, tipLength));
         }
     }
 

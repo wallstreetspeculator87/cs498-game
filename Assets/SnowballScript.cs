@@ -42,6 +42,6 @@ public class SnowballScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        SnowballCollide(other);
+        //SnowballCollide(other);
     }
 }
