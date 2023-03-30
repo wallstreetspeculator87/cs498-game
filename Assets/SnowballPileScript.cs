@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class SnowballPileScript : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject pile;
-    private float range = 5f;
-
-    // Start is called before the first frame update
-    void Start()
+    private void PileCollide(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            var playerGlobals = other.GetComponentInChildren<PlayerGlobals>();
+            playerGlobals.ammo = playerGlobals.maxAmmo;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        float distance = Vector3.Distance(player.transform.position, pile.transform.position);
-        if (distance <= range) {
-            //player.SendMessage("RefillAmmo");
-        }
+        PileCollide(collision.collider);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        PileCollide(other);
     }
 }
