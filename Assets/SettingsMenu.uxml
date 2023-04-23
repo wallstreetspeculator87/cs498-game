@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="Main" style="width: 100%; height: 100%; justify-content: space-around; align-items: center; font-size: 24px; -unity-text-align: upper-center;">
+        <ui:Label text="Options" display-tooltip-when-elided="true" name="Title" style="font-size: 48px;" />
+        <ui:SliderInt picking-mode="Ignore" label="Sensitivity" value="50" high-value="100" name="SensitivitySlider" low-value="1" show-input-field="true" style="width: 50%; height: 10%; align-items: center; justify-content: center; visibility: visible;" />
+        <ui:SliderInt picking-mode="Ignore" label="Field of View" value="90" high-value="110" name="FovSlider" inverted="false" low-value="70" show-input-field="true" style="width: 50%; height: 10%; align-items: center; justify-content: center; visibility: visible;" />
+        <ui:Button text="Back" display-tooltip-when-elided="true" name="BackButton" style="width: 50%; height: 10%; font-size: 24px;" />
+    </ui:VisualElement>
+</ui:UXML>

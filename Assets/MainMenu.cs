@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
     private VisualElement rootElement;
     private GameObject player;
     private PlayerGlobals playerGlobals;
+    private SettingsMenuScript settingsMenuScript;
     
     void Start()
     {
@@ -32,6 +33,7 @@ public class MainMenu : MonoBehaviour
         quitButton.clickable.clicked += QuitClicked;
 
         hud.GetComponent<UIDocument>().rootVisualElement.visible = false;
+        settingsMenuScript = transform.parent.GetComponentInChildren<SettingsMenuScript>();
     }
 
     void StartGame()
@@ -48,13 +50,15 @@ public class MainMenu : MonoBehaviour
     {
         // Begin tutorial
         Debug.Log("Clicked tutorial");
-        rootElement.visible = false;
+        Show(false);
         StartGame();
     }
 
     private void OptionsClicked()
     {
         // Show options menu
+        Show(false);
+        settingsMenuScript.Show(true);
         Debug.Log("Clicked options");
     }
 
@@ -69,5 +73,10 @@ public class MainMenu : MonoBehaviour
         // Exit game
         Debug.Log("Clicked quit");
         Application.Quit(1);
+    }
+
+    public void Show(bool b)
+    {
+        rootElement.visible = b;
     }
 }
