@@ -41,7 +41,7 @@ public class MainMenu : MonoBehaviour
         player = transform.parent.gameObject;
         playerGlobals = player.GetComponent<PlayerGlobals>();
 
-        player.transform.Find("Camera").GetComponent<MouseLook>().LockMouse();
+        player.transform.Find("Camera").GetComponent<MouseLook>().Lock();
         playerGlobals.characterEnabled = true;
         hud.GetComponent<UIDocument>().rootVisualElement.visible = true;
     }

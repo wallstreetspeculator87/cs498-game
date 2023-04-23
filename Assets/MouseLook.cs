@@ -19,9 +19,16 @@ public class MouseLook : MonoBehaviour
         playerGlobals = transform.parent.GetComponent<PlayerGlobals>();
     }
 
-    public void LockMouse()
+    public void Lock()
     {
+        playerGlobals.characterEnabled = true;
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void Unlock()
+    {
+        playerGlobals.characterEnabled = false;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Update is called once per frame
@@ -39,5 +46,11 @@ public class MouseLook : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
+
+        if (Input.GetKeyDown(KeyCode.Escape) && playerGlobals.characterEnabled)
+        {
+            Unlock();
+            transform.parent.GetComponentInChildren<MainMenu>().Show(true);
+        }
     }
 }
